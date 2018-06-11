@@ -3,14 +3,18 @@ service: serverless
 provider:
   name: aws
   runtime: nodejs8.10
-  profile: femasters
+  profile: willyhakim
   region: us-west-1
   stage: dev
 
 plugins:
   - serverless-offline
 
-functions:  
+functions:
+  api:
+    handler: src/api/api.handler
+    events:
+      - http  
   todos:
     handler: src/api/todos.handler
     events:
